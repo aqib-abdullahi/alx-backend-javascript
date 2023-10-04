@@ -5,7 +5,7 @@ function queryAPI(endPoint) {
   } else {
     const counter = weakMap.get(endPoint) + 1;
     weakMap.set(endPoint, counter);
-    if (counter >=5) {
+    if (counter >= 5) {
       throw new Error('Endpoint load is high');
     }
   }
