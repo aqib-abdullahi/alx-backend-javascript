@@ -29,6 +29,13 @@ export default function createEmployee(salary: number | string): Director | Teac
   return new Director();  
 }
 
-console.log(createEmployee(200));
-console.log(createEmployee(1000));
-console.log(createEmployee('$500'));
+export default function isDirector(employee: DirectorInterface | TeacherInterface): employee is Director {
+  return employee instanceof Director;
+}
+
+export default function executeWork(employee: DirectorInterface | TeacherInterface): string {
+  if (isDirector(employee)) {
+    return employee.workDirectorTasks();
+  }
+  return employee.workTeacherTasks();
+}
