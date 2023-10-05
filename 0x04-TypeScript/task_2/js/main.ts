@@ -22,18 +22,18 @@ class Teacher implements TeacherInterface {
   workTeacherTasks = (): string => 'Getting to work';
 }
 
-export default function createEmployee(salary: number | string): Director | Teacher {
+function createEmployee(salary: number | string): Director | Teacher {
   if (typeof salary === 'number' && salary < 500) {
     return new Teacher();
   }
   return new Director();  
 }
 
-export default function isDirector(employee: DirectorInterface | TeacherInterface): employee is Director {
+function isDirector(employee: DirectorInterface | TeacherInterface): employee is Director {
   return employee instanceof Director;
 }
 
-export default function executeWork(employee: DirectorInterface | TeacherInterface): string {
+function executeWork(employee: DirectorInterface | TeacherInterface): string {
   if (isDirector(employee)) {
     return employee.workDirectorTasks();
   }
@@ -42,7 +42,7 @@ export default function executeWork(employee: DirectorInterface | TeacherInterfa
 
 type Subjects = "Math" | "History";
 
-export default function teachClass(todayClass: Subjects): string {
+function teachClass(todayClass: Subjects): string {
   if (todayClass === "Math") {
     return "Teaching Math";
   } else if (todayClass === "History") {
@@ -50,4 +50,11 @@ export default function teachClass(todayClass: Subjects): string {
   } else {
     throw new Error("Invalid subject");
   }
+}
+
+export default {
+  createEmployee,
+  isDirector,
+  executeWork,
+  teachClass,
 }
