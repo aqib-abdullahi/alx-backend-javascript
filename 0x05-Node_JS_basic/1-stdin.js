@@ -8,8 +8,8 @@ process.stdin.on('data', (input) => {
   } else {
     process.stdout.write('Your name is: NULL');
   }
+});
 
-  process.stdin.on('close', () => {
-    process.stdout.write('This important software is now closing\n');
-  });
+process.stdin.on('close', () => {
+  process.stdout.write('This important software is now closing\n');
 });
