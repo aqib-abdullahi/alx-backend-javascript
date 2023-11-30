@@ -16,7 +16,7 @@ function countStudents(path) {
       }
       fields[field].push(student[0]);
     }
-    console.log(`Number of students: ${students.length - 1}`);
+    console.log(`Number of students: ${students.length}`);
     for (const field in fields) {
       if (Object.prototype.hasOwnProperty.call(fields, field)) {
         const count = fields[field].length;
